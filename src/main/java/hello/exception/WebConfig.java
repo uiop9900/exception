@@ -3,6 +3,7 @@ package hello.exception;
 import hello.exception.filter.LogFiter;
 import hello.exception.interceptor.LogInterceptor;
 import hello.exception.resolver.MyHandlerExceptionResolver;
+import hello.exception.resolver.UserHandlerExceptionResolver;
 import lombok.extern.java.Log;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -32,6 +33,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
         resolvers.add(new MyHandlerExceptionResolver()); // handler 등록
+        resolvers.add(new UserHandlerExceptionResolver()); // handler 등록
     }
 
     /**
